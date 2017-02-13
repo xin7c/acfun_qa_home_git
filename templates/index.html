@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}HomePage{% endblock %}
+{% block body_1 %}
+    <div>
+        <h1 class="center">欢迎回来 <small>Acfun QA</small></h1>
+    </div>
+    <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Links</th>
+                <th>Action Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><a href="/">HomePage</a></td>
+                <td>主页</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><a href="/ajax">Ajax</a></td>
+                <td>Ajax</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><a href="#">Docs</a></td>
+                <td>Docs</td>
+              </tr>
+            </tbody>
+          </table>
+{% endblock %}
+{% url "index" %}
