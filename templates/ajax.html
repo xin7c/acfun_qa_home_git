@@ -3,11 +3,11 @@
 {% block body_1 %}
     <form method="post" id="formadd" href="/ajax">
         {% csrf_token %}
-        <label for="id_name">用户名</label>
-        <input type="text" id="id_name" placeholder="不填也行其实"/>
-        <label for = "id_password">密码</label>
-        <input type="password" id="id_password" placeholder="不填也行其实"/>
-        <button type="button" id="submit" >提交</button>
+        <label for="input_01">Shell</label>
+        <input type="text" id="input_01" placeholder="shell" value="ls"/>
+{#        <label for = "input_02">密码</label>#}
+{#        <input type="password" id="input_02" placeholder="不填也行其实"/>#}
+        <button type="button" id="submit" >=*=戳我=*=</button>
     </form>
     <div id="ajax_req">
         看见我就糟了
@@ -18,19 +18,21 @@
             $.ajaxSetup({
                  data: {csrfmiddlewaretoken: '{{ csrf_token }}' }
             });
-            $('#formadd').click(function(){
-                var name = $("#id_name").val();
-                var password = $("#id_password").val();
+            $('#submit').click(function(){
+                var shell = $("#input_01").val();
+                var password = $("#input_02").val();
                 $.ajax({
                     url: "{% url 'ajax_action' %}",
                     type:"POST",
                     crossDomain:true,
                     xhrFields:{withCredentials:true},
-                    data: {name:name, password:password},
+                    data: {shell:shell, password:password},
                     cache: false,
 {#                    dataType: "html"#}
                     }).done(function(ajax_req){
                         $('#ajax_req').html(ajax_req)
+                                .css({backgroundColor: "#66ffcc",
+                                width:"400px"})
                     });
                 });
             });

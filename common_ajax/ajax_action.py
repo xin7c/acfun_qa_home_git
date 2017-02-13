@@ -5,12 +5,12 @@
     @author: xuchu(xuchu@acfun.tv)
 """
 import paramiko
-def ssh_qa_server():
+def ssh_qa_server(command):
     '''ssh登陆测试服务器并执行shell命令'''
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(hostname='192.168.71.101', port=22, username='root', password='MdxBlsntKb7')
-    stdin, stdout, stderr = ssh.exec_command('ls -sail')
+    stdin, stdout, stderr = ssh.exec_command(command)
     results = stdout.readlines()
     print results
     ssh.close()
@@ -18,4 +18,4 @@ def ssh_qa_server():
 
 # Go
 if __name__ == '__main__':
-    ssh_qa_server()
+    ssh_qa_server(command='pwd')
