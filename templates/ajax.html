@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Ajax{% endblock %}
 {% block body_1 %}
-    <form method="post" id="formadd" href="/ajax">
+    <form method="post" id="formadd" href="/ajax" onsubmit="return false;">
         {% csrf_token %}
         <label for="input_01">Shell</label>
-        <input type="text" id="input_01" placeholder="shell" value="ls"/>
-{#        <label for = "input_02">密码</label>#}
-{#        <input type="password" id="input_02" placeholder="不填也行其实"/>#}
-        <button type="button" id="submit" >=*=戳我=*=</button>
+        <input type="text" id="input_01" placeholder="shell" autofocus="autofocus" value="ls"/>
+        <label for = "input_02">密码</label>
+        <input type="password" id="input_02" placeholder="不填也行其实"/>
+        <input type="submit" id="submit" value="=*=戳我=*=">
     </form>
     <div id="ajax_req">
         看见我就糟了
