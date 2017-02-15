@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
-{% block title %}Ajax{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% block body_1 %}
+    <h2>QA <small>{{ title }}</small></h2>
+
     <form method="post" id="formadd" href="/ajax" onsubmit="return false;">
         {% csrf_token %}
         <label for="input_01">Shell</label>

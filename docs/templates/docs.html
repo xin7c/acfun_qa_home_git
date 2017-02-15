@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body_1 %}
-    <h2>Acfun <small>Docs</small></h2>
+    <h2>QA <small>Docs</small></h2>
 
     <form method="post" id="form_check_mysql" href="/docs/docs_check_mysql" onsubmit="return false;" >
         {% csrf_token %}
         <label for="input_check_mysql">查询id</label>
-        <input type="text" id="input_check_mysql" placeholder="输入id" autofocus="autofocus" value=1 />
+        <input type="text" id="input_check_mysql" placeholder=id最大为[{{ max_id }}] autofocus="autofocus" />
 
         <input type="submit" id="submit" value="=*=戳我=*=">
     </form>

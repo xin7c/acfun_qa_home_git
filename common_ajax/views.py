@@ -5,7 +5,9 @@ from homepage.models import Homepagedb
 
 
 def ajax_html(req):
-    return render(req, "ajax.html", {})
+    context = {}
+    context["title"] = "Ajax"
+    return render(req, "ajax.html", context=context)
 
 def ajax_action(req):
     if req.method == "POST":
