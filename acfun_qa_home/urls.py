@@ -17,12 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from homepage.views import index
 from common_ajax.views import ajax_html, ajax_action
-from docs.views import docs_html
+from docs.views import docs_html, docs_check_mysql
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="index"),
     url(r'^ajax/$', ajax_html, name="ajax_html"),
     url(r'^ajax/ajax_action$', ajax_action, name="ajax_action"),
     url(r'^docs/$', docs_html, name="docs_html"),
+    url(r'^docs/docs_check_mysql$', docs_check_mysql, name="docs_check_mysql"),
 
 ]

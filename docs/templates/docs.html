@@ -2,4 +2,39 @@
 {% block title %}{{ title }}{% endblock %}
 {% block body_1 %}
     <h2>Acfun <small>Docs</small></h2>
+
+    <form method="post" id="form_check_mysql" href="/docs/docs_check_mysql" onsubmit="return false;" >
+        {% csrf_token %}
+        <label for="input_check_mysql">查询id</label>
+        <input type="text" id="input_check_mysql" placeholder="输入id" autofocus="autofocus" value=1 />
+
+        <input type="submit" id="submit" value="=*=戳我=*=">
+    </form>
+    <div id="ajax_req">
+        OOXX
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $.ajaxSetup({
+                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' }
+            });
+            $('#submit').click(function(){
+                var input_check_mysql = $("#input_check_mysql").val();
+                $.ajax({
+                    url: "{% url 'docs_check_mysql' %}",
+                    type:"POST",
+                    crossDomain:true,
+                    xhrFields:{withCredentials:true},
+                    data: {input_check_mysql:input_check_mysql},
+                    cache: false,
+{#                    dataType: "html"#}
+                    }).done(function(ajax_req){
+                        $('#ajax_req').html(ajax_req)
+                                .css({backgroundColor: "#66ffcc",
+                                width:"400px"})
+                    });
+                });
+            });
+    </script>
 {% endblock %}
