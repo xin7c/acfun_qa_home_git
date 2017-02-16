@@ -5,6 +5,7 @@ from django.db import models
 
 class Homepagedb(models.Model):
     halo_text = models.CharField(max_length=200)
+    age = models.IntegerField()
     print "查询Homepagedb"
 
     def __unicode__(self):

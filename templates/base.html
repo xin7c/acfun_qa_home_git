@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}默认标题{% endblock %} - Acfun</title>
-{#    <link rel="stylesheet" type="text/css" href="/static_all/common_css.css" />#}
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-{#    <link rel="stylesheet" href="/static_all/bootstrap-theme.min.css" />#}
+    <link rel="stylesheet" href="/static/local_css.css" />
     <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+
 </head>
 <body>
 {#    <h1 class="text-center">=======我是通栏======</h1>#}
@@ -24,7 +24,7 @@
     {% endblock %}
     {% block fresh %}
         <div>
-            <input id="bt1" type="button" onclick="javascript:location.reload();" value="怼我以刷新哦" class="btn btn-xs btn-info">
+            <input id="bt1" type="button" onclick="javascript:location.reload();" value="怼我以刷新哦" class="btn btn-xs btn-info center-block">
         </div></br>
     {% endblock %}
 </body>
