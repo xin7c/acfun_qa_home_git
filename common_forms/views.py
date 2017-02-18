@@ -17,7 +17,7 @@ def testfrom_add(req):
             a = form.cleaned_data['a']
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
-            result = str(int(a) + int(b)) + c
+            result = "%s : [%s]" %(str(int(a) + int(b)), c)
             print result
             return HttpResponse(result)
         else:
