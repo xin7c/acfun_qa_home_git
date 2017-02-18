@@ -18,6 +18,7 @@ from django.contrib import admin
 from homepage.views import index
 from common_ajax.views import ajax_html, ajax_action
 from docs.views import docs_html, docs_check_mysql
+from common_forms.views import testform
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     url(r'^ajax/ajax_action$', ajax_action, name="ajax_action"),
     url(r'^docs/$', docs_html, name="docs_html"),
     url(r'^docs/docs_check_mysql$', docs_check_mysql, name="docs_check_mysql"),
+    url(r'^testform/$', testform, name="testform"),
 
 ]

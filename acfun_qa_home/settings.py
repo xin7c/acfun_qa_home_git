@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'homepage',
     'common_ajax',
     'docs',
+    'common_forms',
 ]
 
 MIDDLEWARE = [
