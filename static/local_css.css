@@ -3,3 +3,11 @@
   /*margin-left: auto;*/
   /*margin-right: auto;*/
 /*}*/
+#testform{
+    float: left;
+}
+
+#result{
+    float: left;
+    margin:auto 20px;
+}
