@@ -8,4 +8,3 @@ Pycharm:acfun_qa_home_git
 
 2017.02.20
 
-git remote set-url origin git@github.com:xin7c/acfun_qa_home.git
