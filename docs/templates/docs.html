@@ -35,6 +35,10 @@
                                 width:"400px"})
                     });
                 });
-            });
+            var cPath = window.location.pathname;
+            if(cPath == "/docs/"){
+                $('#li_docs').attr({"class":"active"});
+            }
+        });
     </script>
 {% endblock %}

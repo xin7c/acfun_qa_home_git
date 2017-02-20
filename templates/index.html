@@ -30,5 +30,12 @@
               </tr>
             </tbody>
           </table>
+    <script>
+    $(document).ready(function(){
+        var cPath = window.location.pathname;
+        if(cPath == "/"){
+            $('#li_index').attr({"class":"active"});
+        }
+    });
+    </script>
 {% endblock %}
-{% url "index" %}

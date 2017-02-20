@@ -36,6 +36,10 @@
                                 .css({backgroundColor: "#66ffcc",width:"400px"})
                     });
                 });
+            var cPath = window.location.pathname;
+            if(cPath == "/ajax/"){
+            $('#li_ajax').attr({"class":"active"});
+        }
             });
     </script>
 
