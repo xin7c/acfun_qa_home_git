@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import AddForm
 
-
 def testform(req):
     form = AddForm()
     return render(req, "testform.html", {"form": form})
