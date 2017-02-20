@@ -2,37 +2,48 @@
 {% block title %}testform{% endblock %}
 
 {% block body_1 %}
-url name = [{% url 'testform' %}]<br>
-<div id="testform">
-    <form method='post' onsubmit="return false;" class="form-group" autocomplete="off">
+{#<div id="testform">#}
+<div class="container">
+    <form method='post' onsubmit="return false;" class="form-horizontal" autocomplete="off" role="form">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="等于" id="submit">
+    <input type="submit" value="submit" id="submit" class="btn btn-info btn-sm">
     </form>
+    <div id="result" class="text-success text-left"><kbd>None</kbd></div>
 </div>
-<div id="result">None</div>
+
+
+    <div class="container">
+        <img src="/static/stark.jpg" class="img-responsive" alt="House Stark" title="House Stark">
+    </div>
+
 
 <script>
     $(document).ready(function(){
         $.ajaxSetup({
                  data: {csrfmiddlewaretoken: '{{ csrf_token }}' }
             });
-            $('#submit').click(function(){
-                var id_a = $("#id_a").val();
-                var id_b = $("#id_b").val();
-                var id_c = $("#id_c").val();
-                $.ajax({
-                    url: "{% url 'testfrom_add' %}",
-                    type:"POST",
-                    crossDomain:true,
-                    xhrFields:{withCredentials:true},
-                    data: {a:id_a, b:id_b, c:id_c},
-                    cache: false,
-{#                    dataType: "html"#}
-                }).done(function(data){
-                        $('#result').html(data);})
-                    });
-                });
+        $('#submit').click(function(){
+            var id_a = $("#id_a").val();
+            var id_b = $("#id_b").val();
+            var id_c = $("#id_c").val();
+            $.ajax({
+                url: "{% url 'testfrom_add' %}",
+                type:"POST",
+                crossDomain:true,
+                xhrFields:{withCredentials:true},
+                data: {a:id_a, b:id_b, c:id_c},
+                cache: false,
+{#                   dataType: "html"#}
+            }).done(function(data){
+                $('#result').html('<kbd>'+ data +'</kbd>');})
+        });
+        var cPath = window.location.pathname;
+        if(cPath == "/testform/"){
+            $('#li_testform').attr({"class":"active"});
+        }
+
+    });
     </script>
 {% endblock %}
 {% block fresh %}

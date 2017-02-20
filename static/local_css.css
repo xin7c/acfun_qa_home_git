@@ -8,6 +8,7 @@
 }
 
 #result{
-    float: left;
-    margin:auto 20px;
+    /*float: left;*/
+    margin:auto auto;
+    width: auto;
 }

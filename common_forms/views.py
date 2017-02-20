@@ -13,7 +13,7 @@ def testfrom_add(req):
     if req.method == "POST":
         form = AddForm(req.POST)
         if form.is_valid():
-            print form.cleaned_data
+            print "表单验证[成功],合法数据:", form.cleaned_data
             a = form.cleaned_data['a']
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
@@ -21,6 +21,5 @@ def testfrom_add(req):
             print result
             return HttpResponse(result)
         else:
-            print form.cleaned_data
+            print "表单验证[失败],合法数据:", form.cleaned_data
             return HttpResponse(None)
-
