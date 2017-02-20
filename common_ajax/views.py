@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.shortcuts import render
 from ajax_action import ssh_qa_server
 from django.http import HttpResponse
