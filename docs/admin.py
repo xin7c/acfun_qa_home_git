@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Docsdb
 
-# Register your models here.
+class DocsdbAdmin(admin.ModelAdmin):
+    list_display = ('doc_name', 'price', 'timestamp')
+
+
+admin.site.register(Docsdb, DocsdbAdmin)
