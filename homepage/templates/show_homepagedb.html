@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show_homepagedb</title>
+</head>
+<body>
+<h1>试验读库</h1>
+{% for db in db_list %}
+<table border="1">
+  <tr>
+    <td>id</td>
+    <td>{{ db.id }}</td>
+    <td>{{ db.halo_text }}</td>
+    <td>{{ db.sex }}</td>
+  </tr>
+</table>
+{% endfor %}
+</body>
+</html>
