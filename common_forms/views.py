@@ -3,9 +3,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import AddForm
 
+
 def testform(req):
     form = AddForm()
     return render(req, "testform.html", {"form": form})
+
 
 def testfrom_add(req):
     # print req.POST
@@ -14,9 +16,9 @@ def testfrom_add(req):
         if form.is_valid():
             print "表单验证[成功],合法数据:", form.cleaned_data
             a = form.cleaned_data['a']
-            b = form.cleaned_data['b']
+            # b = form.cleaned_data['b']
             c = form.cleaned_data['c']
-            result = "%s : [%s]" %(str(int(a) + int(b)), c)
+            result = "%s : [%s]" % (a, c)
             print result
             return HttpResponse(result)
         else:

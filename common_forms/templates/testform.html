@@ -25,14 +25,14 @@
             });
         $('#submit').click(function(){
             var id_a = $("#id_a").val();
-            var id_b = $("#id_b").val();
+{#            var id_b = $("#id_b").val();#}
             var id_c = $("#id_c").val();
             $.ajax({
                 url: "{% url 'testfrom_add' %}",
                 type:"POST",
                 crossDomain:true,
                 xhrFields:{withCredentials:true},
-                data: {a:id_a, b:id_b, c:id_c},
+                data: {a:id_a, c:id_c},
                 cache: false,
 {#                   dataType: "html"#}
             }).done(function(data){
