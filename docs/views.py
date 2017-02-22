@@ -31,11 +31,15 @@ def docs_check_mysql(req):
 
         else:
             return HttpResponse(content="Search Faild!!!")
-
-
             # try:
             #     print Homepagedb.objects.filter(id=4).get().id
             # except ObjectDoesNotExist as oo:
             #     print "No"
             #     print ObjectDoesNotExist
             #     print oo
+
+def docs_Teambuilding(req):
+
+
+
+    return render(req, "docs_teambuilding.html", context={})
