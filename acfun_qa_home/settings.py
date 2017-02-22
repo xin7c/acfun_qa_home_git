@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'common_ajax',
     'docs',
     'common_forms',
+    'users',
 ]
 
 MIDDLEWARE = [

@@ -23,3 +23,9 @@ class Teambuildingdb(models.Model):
 
     def __str__(self):
         return self.qa_name
+
+    class Meta:
+        verbose_name = '团建信息'
+        verbose_name_plural = '团建信息'
+        ordering = ['id']  # 按照哪个栏目排序
+
