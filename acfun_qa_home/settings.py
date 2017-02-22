@@ -147,7 +147,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-
 # debug_toolbar设置
 # http://blog.csdn.net/permike/article/details/54706091
 # http://django-debug-toolbar.readthedocs.io/en/stable/configuration.html
@@ -169,4 +168,4 @@ DEBUG_TOOLBAR_PANELS = [
 DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
 }
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1', '192.168.35.24')
