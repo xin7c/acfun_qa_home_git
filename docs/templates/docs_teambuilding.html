@@ -5,6 +5,9 @@
     <title>TeamBuilding</title>
 </head>
 <body>
-TeamBuilding
+<h1>TB Info</h1>
+{% for info in tb_info %}
+    <h3>[{{ info.id }}]{{ info.qa_name }} : <small>{{ info.go_where }}</small></h3>
+{% endfor %}
 </body>
 </html>

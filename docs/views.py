@@ -39,7 +39,9 @@ def docs_check_mysql(req):
             #     print oo
 
 def docs_Teambuilding(req):
+    from docs.models import Teambuildingdb as tb
+    tb_info = tb.objects.all()
+    context={}
+    context['tb_info'] = tb_info
 
-
-
-    return render(req, "docs_teambuilding.html", context={})
+    return render(req, "docs_teambuilding.html", context=context)
