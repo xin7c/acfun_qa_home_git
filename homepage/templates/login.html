@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body_1 %}
+<div class="container">
+    <div class="row">
+        <form class="col-md-6 col-md-offset-3" method='post' onsubmit="return false;" role="form">
+            <h2 class="center">Login You XXXX</h2>
+            {% csrf_token %}
+            <div class="form-group">
+                <input id="email" type="text" class="form-control"
+                    placeholder="Email address" required="required" autofocus="autofocus" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <input id="password" type="password" class="form-control"
+                    placeholder="Password" required="required" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+    <div id="result"></div>
+</div>
+    <script>
+    $(document).ready(function(){
+        $.ajaxSetup({
+                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' }
+            });
+        $('#submit').click(function(){
+            var email = $("#email").val();
+            var password = $("#password").val();
+            $.ajax({
+                url: "{% url 'login_req' %}",
+                type:"POST",
+                crossDomain:true,
+                xhrFields:{withCredentials:true},
+                data: {email:email, password:password},
+                cache: false,
+{#                   dataType: "html"#}
+            }).done(function(data) {
+                $('#result').html(data).attr({'class': 'bg-info'}).css(
+                        {
+                            'text-align': 'center',
+                            'line-height': '30px',
+                            'width': '555px'
+                        });
+                console.log(data)
+            });
+        });
+            var cPath = window.location.pathname;
+            if(cPath == "/login/"){
+                $('#li_login').attr({"class":"active"});
+            }
+    });
+</script>
+{% endblock %}

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from homepage.views import index, show_homepagedb
+from homepage.views import index, show_homepagedb, login, login_req
 from common_ajax.views import ajax_html, ajax_action
 from docs.views import docs_html, docs_check_mysql, docs_Teambuilding
 from common_forms.views import testform, testfrom_add
@@ -24,6 +24,8 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="index"),
+    url(r'^login/$', login, name="login"),
+    url(r'^login_req/$', login_req, name="login_req"),
     url(r'^ajax/$', ajax_html, name="ajax_html"),
     url(r'^ajax/ajax_action$', ajax_action, name="ajax_action"),
     url(r'^docs/$', docs_html, name="docs_html"),

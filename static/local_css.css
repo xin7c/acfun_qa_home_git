@@ -10,5 +10,6 @@
 #result{
     /*float: left;*/
     margin:auto auto;
-    width: auto;
+    height: 30px;
+    text-align:center;
 }
