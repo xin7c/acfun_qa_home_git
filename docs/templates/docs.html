@@ -2,6 +2,7 @@
 {% block title %}{{ title }}{% endblock %}
 {% block body_1 %}
     <h2>QA <small>Docs</small></h2>
+    <h3>{{ username }}</h3>
 
     <form method="post" id="form_check_mysql" href="/docs/docs_check_mysql" onsubmit="return false;" >
         {% csrf_token %}

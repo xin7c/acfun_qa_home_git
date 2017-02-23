@@ -2,11 +2,15 @@
 from django.shortcuts import render
 from homepage.models import Homepagedb
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect
 from django import forms
 
 
 def index(req):
-    return render(req, "index.html", {})
+    context = {}
+    username = req.session.get('username', '请登录哦')
+    context['username'] = username
+    return render(req, "index.html", context=context)
 
 
 def show_homepagedb(req):
@@ -17,7 +21,7 @@ def show_homepagedb(req):
 
 
 class UserForm(forms.Form):
-    username = forms.CharField()
+    username = forms.CharField(max_length=10)
 
 
 def login(req):
@@ -30,9 +34,12 @@ def login(req):
 def login_req(req):
     """主站登陆判断"""
     if req.method == "POST":
-        email, password = req.POST['email'], req.POST['password']
-        if email == "xuchu" and password == "111111":
-            result = u"登陆成功" + u"[" + email + u":" + password + u"]"
+        username, password = req.POST['email'], req.POST['password']
+        if username == "xuchu" and password == "1":
+            result = "200"
+            req.session['username'] = username
+            req.session['result'] = result
+            print req.session.items()
             return HttpResponse(result)
         else:
             result = "登录失败"
@@ -48,17 +55,27 @@ def login_t(req):
             username = uf.cleaned_data['username']
             # 把获取表单的用户名传递给session对象
             req.session['username'] = username
-            return HttpResponseRedirect('/login_index/')
+            return HttpResponseRedirect('/')
+            # context = {}
+            # context['username'] = username
+            # return render(req, "login_t.html", context=context)
     else:
         uf = UserForm()
     return render(req, 'login_t.html', {'uf': uf})
 
-#登陆后跳转页
+
+# 登陆后跳转页
 def login_index(req):
-    username = req.session.get('username', 'anybody')
+    username = req.session.get('username', '请登录哦')
     return render(req, 'login_index.html', {'username': username})
 
-#注销动作
+
+# 注销动作
 def logout(req):
-    del req.session['username'] #删除session
-    return HttpResponse('LogOut Done!')
+    del req.session['username']  # 删除session
+    context = {}
+    context['uf'] = UserForm()
+    context['logout_succsess'] = 'logout_succsess'
+
+    # return render(req, 'login_t.html', context=context)
+    return HttpResponseRedirect('/')

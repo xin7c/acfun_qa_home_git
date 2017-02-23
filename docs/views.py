@@ -11,6 +11,8 @@ def docs_html(req):
     context = {}
     context["title"] = "Docs"
     context["max_id"] = max_id
+    username = req.session.get('username', '请登录哦')
+    context['username'] = username
     return render(req, "docs.html", context=context)
 
 
