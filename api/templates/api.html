@@ -6,6 +6,10 @@
 </head>
 <body>
 session : {{ session_items }}<br>
-cookies : {{ COOKIES }}
+COOKIES : {{ COOKIES }}<br>
+{% for key,value in COOKIES.items %}
+    cookies[{{ forloop.counter }}] {{ key }} ==> {{ value }}<br>
+{% endfor %}
+
 </body>
 </html>
