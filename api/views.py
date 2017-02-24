@@ -14,7 +14,7 @@ def api(req):
     context['COOKIES'] = req.COOKIES
 
     response = render(req, "api.html", context=context)
-    response["qa"] = "1"
+    # 设置Response Headers
+    response["location"] = "/api"
     response.set_cookie(key="isQa", value="isQa_value")
-    response.set_cookie(key="isQa_1", value="isQa_value_1")
     return response

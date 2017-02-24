@@ -10,15 +10,14 @@ def index(req):
     context = {}
     #尝试查库
     m = Userdb.objects.get(username="xuchu")
-    print m.username
-    print m.password
+    print m.username, ":", m.password
     # print req.session.keys()
     # print req.session.items()
     # print req.session.get_expiry_date()
     username = req.session.get('username', '请登录哦')
     context['username'] = username
     response = render(req, "index.html", context=context)
-    response["ping"] = "pong"
+    response["location"] = "/index"
     return response
 
 
