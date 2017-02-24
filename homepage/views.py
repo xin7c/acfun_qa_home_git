@@ -8,9 +8,14 @@ from django import forms
 
 def index(req):
     context = {}
+    print req.session.keys()
+    print req.session.items()
+    print req.session.get_expiry_date()
     username = req.session.get('username', '请登录哦')
     context['username'] = username
-    return render(req, "index.html", context=context)
+    response = render(req, "index.html", context=context)
+    response["ping"] = "pong"
+    return response
 
 
 def show_homepagedb(req):
@@ -77,5 +82,6 @@ def logout(req):
     context['uf'] = UserForm()
     context['logout_succsess'] = 'logout_succsess'
 
-    # return render(req, 'login_t.html', context=context)
-    return HttpResponseRedirect('/')
+    return render(req, 'login_t.html', context=context)
+    # return HttpResponseRedirect('/')
+    # return render(req, "login_index.html", context=context)

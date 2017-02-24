@@ -7,8 +7,8 @@ class DocsdbAdmin(admin.ModelAdmin):
 
 
 class DocsTeambuildingAdmin(admin.ModelAdmin):
-    list_display = ('id', 'qa_name', 'go_where', 'comments', 'timestamp')
-    list_display_links = ('id', "qa_name", 'go_where', 'comments', 'timestamp')
+    list_display = ('id', 'qa_name', 'sex' ,'go_where', 'comments', 'timestamp')
+    list_display_links = ('id', "qa_name", 'sex', 'go_where', 'comments', 'timestamp')
 
 
 admin.site.register(Docsdb, DocsdbAdmin)

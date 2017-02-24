@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
 from homepage.views import index, show_homepagedb, login, login_req, login_t, login_index, logout
 from common_ajax.views import ajax_html, ajax_action
 from docs.views import docs_html, docs_check_mysql, docs_Teambuilding
 from common_forms.views import testform, testfrom_add
-from django.conf import settings
+from api.views import api
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -37,6 +38,8 @@ urlpatterns = [
     url(r'^testform/$', testform, name="testform"),
     url(r'^testform/testfrom_add/$', testfrom_add, name="testfrom_add"),
     url(r'^show_homepagedb/$', show_homepagedb, name="show_homepagedb"),
+    url(r'^api/$', api, name="api"),
+
 ]
 if 'debug_toolbar' in settings.INSTALLED_APPS:
     import debug_toolbar
