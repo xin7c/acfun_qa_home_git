@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.vary import vary_on_headers
 from django.utils.cache import patch_vary_headers
+
 # @vary_on_headers('User-Agent', 'Cookie')
 def api(req):
     session_items = req.session.items()
