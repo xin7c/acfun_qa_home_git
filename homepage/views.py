@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.shortcuts import render
-from homepage.models import Homepagedb
+from homepage.models import Homepagedb, Userdb
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect
 from django import forms
@@ -8,9 +8,13 @@ from django import forms
 
 def index(req):
     context = {}
-    print req.session.keys()
-    print req.session.items()
-    print req.session.get_expiry_date()
+    #尝试查库
+    m = Userdb.objects.get(username="xuchu")
+    print m.username
+    print m.password
+    # print req.session.keys()
+    # print req.session.items()
+    # print req.session.get_expiry_date()
     username = req.session.get('username', '请登录哦')
     context['username'] = username
     response = render(req, "index.html", context=context)

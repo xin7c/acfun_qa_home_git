@@ -16,3 +16,11 @@ class Homepagedb(models.Model):
         # 在Python3中使用 def __str__(self)
         # def __str__(self):
         #     return "this is Homepagedb.__str__"
+@python_2_unicode_compatible
+class Userdb(models.Model):
+    username = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+    timestamp = models.DateTimeField()
+
+    def __str__(self):
+        return self.username

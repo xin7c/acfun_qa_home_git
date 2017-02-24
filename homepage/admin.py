@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Homepagedb
+from .models import Homepagedb, Userdb
 
 
 class HomepadedbAdmin(admin.ModelAdmin):
@@ -8,5 +8,9 @@ class HomepadedbAdmin(admin.ModelAdmin):
     # list_select_related = (True)
     list_display_links = ('id', 'age', 'halo_text', 'sex')
 
+class UserdbAdmin(admin.ModelAdmin):
+    list_display = ('id', 'username', 'password', 'timestamp')
+    list_display_links = ('id', 'username', 'password', 'timestamp')
 
 admin.site.register(Homepagedb, HomepadedbAdmin)
+admin.site.register(Userdb, UserdbAdmin)
