@@ -11,11 +11,13 @@ class Homepagedb(models.Model):
     sex = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.halo_text
+        return "%s|%s|%d" % (self.halo_text, self.sex, self.age)
 
         # 在Python3中使用 def __str__(self)
         # def __str__(self):
         #     return "this is Homepagedb.__str__"
+
+
 @python_2_unicode_compatible
 class Userdb(models.Model):
     username = models.CharField(max_length=200)

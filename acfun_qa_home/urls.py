@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^docs/qatb$', docs_Teambuilding, name="docs_Teambuilding"),
     url(r'^testform/$', testform, name="testform"),
     url(r'^testform/testfrom_add/$', testfrom_add, name="testfrom_add"),
-    url(r'^show_homepagedb/$', show_homepagedb, name="show_homepagedb"),
+    url(r'^show_homepagedb/$', show_homepagedb, {"lord":"xuchu"}, name="show_homepagedb"),
     url(r'^api/$', api, name="api"),
 
 ]

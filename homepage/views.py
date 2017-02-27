@@ -21,11 +21,11 @@ def index(req):
     return response
 
 
-def show_homepagedb(req):
+def show_homepagedb(req, lord):
     """试验读库"""
     db_list = Homepagedb.objects.all()
     # print db_list
-    return render(req, "show_homepagedb.html", {'db_list': db_list})
+    return render(req, "show_homepagedb.html", {'db_list': db_list, 'lord': lord})
 
 
 class UserForm(forms.Form):
