@@ -2,7 +2,6 @@
 from django.shortcuts import render
 from homepage.models import Homepagedb, Userdb
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import redirect
 from django import forms
 
 
