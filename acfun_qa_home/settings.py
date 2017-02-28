@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'common_forms',
     # 'debug_toolbar',
     'api',
+    'download',
 ]
 
 MIDDLEWARE = [

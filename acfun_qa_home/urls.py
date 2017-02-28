@@ -21,6 +21,7 @@ from common_ajax.views import ajax_html, ajax_action
 from docs.views import docs_html, docs_check_mysql, docs_Teambuilding
 from common_forms.views import testform, testfrom_add
 from api.views import api
+from download.views import download
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -39,6 +40,7 @@ urlpatterns = [
     url(r'^testform/testfrom_add/$', testfrom_add, name="testfrom_add"),
     url(r'^show_homepagedb/$', show_homepagedb, {"lord":"xuchu"}, name="show_homepagedb"),
     url(r'^api/$', api, name="api"),
+    url(r'^download/$', download, name="download"),
 
 ]
 if 'debug_toolbar' in settings.INSTALLED_APPS:
