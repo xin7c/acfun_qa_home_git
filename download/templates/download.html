@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>牛逼无敌下载页</title>
 </head>
 <body>
-牛逼无敌下载页
+
+    {% for files in file_list %}
+        {% for file_name, file_link in files.items %}
+            <li><a href={{ file_link }}>{{ file_name }}</a></li>
+        {% endfor %}
+
+    {% endfor %}
 </body>
 </html>
